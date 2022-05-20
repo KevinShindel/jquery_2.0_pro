@@ -1,0 +1,38 @@
+h1 {
+    width: 800px;
+    border: thick double black;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: x-large;
+    padding: .5em;
+    color: darkgreen;
+    background-image: url("../images/border.png");
+    background-size: contain;
+}
+.dtable { display: table}
+.drow {display: table-row}
+.dcell {display: table-cell; padding: 10px}
+.dcell > * {vertical-align: middle}
+input {
+    width: 2em;
+    text-align: right;
+    border: thin solid black;
+    padding: 2px;
+}
+label {
+    width: 5em;
+    padding-left: .5em;
+    padding-right: 1.5em;
+    display: inline-block;
+}
+#buttonDiv {text-align: center}
+#oblock {display: block; margin-left: auto; margin-right: auto; width: 800px;}
+
+img.blueBorder {border: thick solid blue}
+img.redBorder {border: thick solid red}
+img.yellowBorder {border: thick solid yellow}
+
+.errorMsg {color: red}
+.invalidElem {border: medium solid red}

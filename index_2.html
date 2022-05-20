@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQueryPRO</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+</head>
+<body>
+
+<h1>Jacqui's Flower Shop</h1>
+
+<form method="post" >
+    <div id="oblock">
+        <div class="dtable">
+            <div id="row1" class="drow"></div>
+            <div id="row2" class="drow"></div>
+            <div id="row3" class="drow"></div>
+        </div>
+    </div>
+    <div id="buttonDiv"><button type="submit">Place Order</button></div>
+</form>
+
+<script src="scripts/jquery/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script src="scripts/handlebars-v4.7.7.js" type="text/javascript"></script>
+<script src="scripts/chapter_11.js" type="text/javascript"></script>
+<script src="scripts/chapter_12.js" type="text/javascript"></script>
+<!-- Шаблон -->
+<script id="flowerTpml" type="text/x-handlebars-template">
+<!--  Итерация  -->
+    {{#each flowers }}
+    <div class="dcell">
+
+<!--   Интерполяция     -->
+        <img src="images/{{product}}.png" alt="product"/>
+
+        <label for="{{product}}">{{name}}:</label>
+
+<!-- условные директивы  -->
+        <input name="{{product}}"
+               data-price="{{price}}"
+               min="0"
+               max="{{stock}}"
+               step="1"
+               data-postiion="{{@index}}"
+               data-stock="{{#if stock}}1{{/if}}{{#unless stock}}0{{/unless}}"
+               value="0"
+               required
+               type="number"/>
+    </div>
+
+    {{/each}}
+</script>
+
+<script id="flowerListTpl" type="text/x-handlebars-template">
+    <ul>
+        {{#each stockData}}
+            <li>{{@key}} {{this}} в наличии</li>
+        {{/each}}
+    </ul>
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        let data = {
+            flowers: [
+                {name: "Астры", product: "aster", stock: 10, price: 2.99},
+                {name: "Нарцисы", product: "daffodil", stock: 12, price: 1.99},
+                {name: "Розы", product: "rose", stock: 2, price: 4.99},
+
+                {name: "Пионы", product: "peony", stock: 0, price: 1.5},
+                {name: "Примулы", product: "primula", stock: 1, price: 3.12},
+                {name: "Подснежники", product: "snowdrop", stock: 15, price: 0.99},
+
+                {name: "Гвоздика", product: "carnation", stock: 15, price: 1.99},
+                {name: "Лилии", product: "lily", stock: 15, price: 3.99},
+                {name: "Орхидеи", product: "orchid", stock: 15, price: 2.99},
+            ]
+        };
+        for (let i=0; i<data.flowers.length; i++) {
+            if (data.flowers[i].stock === 0) data.flowers[i].stock = null;
+        }
+
+        let query = $("#flowerTpml")
+
+        query.template(data)
+            .filter('*') // Фикс для handlebars
+            .slice(0, 3).appendTo('#row1').end().end()
+            .slice(3,6).appendTo('#row2').end().end()
+            .slice(6).appendTo('#row3');
+
+    })
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        let data = {
+            stockData : {
+                Астры: 10, Пионы: 0, Примулы: 1
+            }
+        }
+        $("#flowerListTpl").template(data).appendTo("body")
+
+    })
+
+</script>
+
+</body>
+</html>
