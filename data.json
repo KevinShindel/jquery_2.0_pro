@@ -1,0 +1,13 @@
+[
+  {"name": "Астры", "product": "aster", "stock": 10, "price": 2.99},
+  {"name": "Нарцисы", "product": "daffodil", "stock": 12, "price": 1.99},
+  {"name": "Розы", "product": "rose", "stock": 2, "price": 4.99},
+
+  {"name": "Пионы", "product": "peony", "stock": 0, "price": 1.5},
+  {"name": "Примулы", "product": "primula", "stock": 1, "price": 3.12},
+  {"name": "Подснежники", "product": "snowdrop", "stock": 15, "price": 0.99},
+
+  {"name": "Гвоздика", "product": "carnation", "stock": 15, "price": 1.99},
+  {"name": "Лилии", "product": "lily", "stock": 15, "price": 3.99},
+  {"name": "Орхидеи", "product": "orchid", "stock": 15, "price": 2.99}
+]

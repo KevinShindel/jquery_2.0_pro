@@ -1,5 +1,3 @@
-// использование шаблонов данных
-
 // handlebars
 (function ($) {
     let compiled = {};

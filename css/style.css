@@ -36,3 +36,14 @@ img.yellowBorder {border: thick solid yellow}
 
 .errorMsg {color: red}
 .invalidElem {border: medium solid red}
+
+#progressDiv{position: relative}
+#progressDiv::before {
+    content: attr(data-before);
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 5px;
+}
+
+#slider:hover{cursor: pointer}
